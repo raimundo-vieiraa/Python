@@ -13,6 +13,11 @@ def exibir_opçoes_do_programa():
     print('2. Listar restaurante')
     print('3. Ativar restaurante')
     print('4. Sair\n')
+
+
+
+def escolher_opcao():
+    opcao_escolhida=int(input('Escolha uma opção: '))
     if opcao_escolhida==1:
         print('Restaurantes Cadastrados')
     elif opcao_escolhida==2:
@@ -28,7 +33,8 @@ def finalizar_app():
 
 def main():
     exibir_nome_do_programa()
-    finalizar_app
+    exibir_opçoes_do_programa()
+    escolher_opcao()
     finalizar_app()
 if __name__ == '__main__':
     main()
