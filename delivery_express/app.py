@@ -40,19 +40,30 @@ def finalizar_app():
     os.system('cls')
     print('Finalizando operação')
 
+def opcao_invalida():
+    print('Opção invalida!\n')
+    input('Digite uma tecla para voltar ao menu principal ')
+    main()
+
 def escolher_opcao():
-    opcao_escolhida=int(input('Escolha uma opção: '))
-    match opcao_escolhida:
-        case 1:
-            print('Restaurantes Cadastrados')
-        case 2:
-            print('Listar Restaurante')
-        case 3:
-            print('Ativar Restaurante')
-        case _:
-            finalizar_app()
+    try:
+        opcao_escolhida=int(input('Escolha uma opção: '))
+        match opcao_escolhida:
+            case 1:
+                print('Restaurantes Cadastrados')
+            case 2:
+                print('Listar Restaurante')
+            case 3:
+                print('Ativar Restaurante')
+            case 4:
+                finalizar_app()
+            case _:
+                opcao_invalida()
+    except:
+        opcao_invalida()
 
 def main():
+    os.system ('cls')
     exibir_nome_do_programa()
     exibir_opçoes_do_programa()
     escolher_opcao()
