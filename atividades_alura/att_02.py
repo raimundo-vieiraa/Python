@@ -39,14 +39,15 @@ else:
 
 x=int(input('Me diga a coordenada x:'))
 y=int(input('Me diga a coordenada y:'))
+coordenadas_gps=(x,y)
 if x > 0 and y > 0:
-    print(f'O ponto está no primeiro quadrante: {x}x e {y}y')
+    print(f'O ponto está no primeiro quadrante: {coordenadas_gps[0]}x e {y}y')
 elif x < 0 and y > 0:
-    print(f'O ponto está no segundo quadrante: {x}x e {y}y')
+    print(f'O ponto está no segundo quadrante: {coordenadas_gps[0]}x e {y}y')
 elif x < 0 and y < 0:
-    print(f'O ponto está no terceiro quadrante: {x}x e {y}y')
+    print(f'O ponto está no terceiro quadrante: {coordenadas_gps[0]}x e {y}y')
 elif x > 0 and y < 0:
-    print(f'O ponto está no quarto quadrante: {x}x e {y}y')
+    print(f'O ponto está no quarto quadrante: {coordenadas_gps[0]}x e {y}y')
 else:
-    print(f'O ponto está localizado no eixo de origem: {x}x e {y}y')
+    print(f'O ponto está localizado no eixo de origem: {coordenadas_gps[0]}x e {y}y')
         
