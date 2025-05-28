@@ -60,7 +60,7 @@ def cadastrar_novo_restaurante():
 def lista_de_restaurantes():
     exibir_subtitulo('Restaurantes Cadastrados')
     for nome_do_restaurante in restaurantes:
-        print('- '+nome_do_restaurante)
+        print('-',nome_do_restaurante)
     retorne_ao_menu_principal()
 
 def retorne_ao_menu_principal():
