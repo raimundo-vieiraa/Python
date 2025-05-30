@@ -1,3 +1,4 @@
+import os
 #1 - Crie uma lista para cada informação a seguir:
 #Lista de números de 1 a 10;
 #Lista com quatro nomes;
@@ -82,21 +83,24 @@ def media_dos_valores_da_lista():
         try:
             valores=float(input(f'Digite um valor: '))
             lista_media.append(valores)
-            break
-        except:
-            print('Por favor. Insira um valor válido!')
-            continue
-    while True:
-        try:
-            deseja_continuar=int(input('Deseja adicionar mais um número? 1=SIM | 2=NÃO: '))
-            match deseja_continuar:
-                case 1:
-                    media_dos_valores_da_lista()
-                case 2:
-                    pass
         except:
             print('Por favor, coloque um valor válido...')
-            continue
+            continue 
+        try:
+                deseja_continuar=int(input('Deseja adicionar mais um número? SIM -> 1 | NÃO -> 2: '))
+                if deseja_continuar==2:
+                    break        
+                elif deseja_continuar!=1:
+                    os.system('cls')
+                    print('Por favor, coloque um valor válido...')
+        except:
+            os.system('cls')
+            print('Por favor, coloque um valor válido...')
+    for i in lista_media:
+        print(i)
+    media=sum(lista_media)/len(lista_media)
+    print(f'A média dos valores da lista é {media:.2f}')
+
 def entender_range():
     for i in range(1,10,2):
         print(i)
