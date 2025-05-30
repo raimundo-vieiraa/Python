@@ -80,22 +80,29 @@ def media_dos_valores_da_lista():
     #7 - Construa um código que calcule a média dos valores em uma lista. Utilize um bloco try-except para lidar com a divisão por zero, caso a lista esteja vazia.
     lista_media=[]
     while True:
-        try:
-            valores=float(input(f'Digite um valor: '))
-            lista_media.append(valores)
-        except:
-            print('Por favor, coloque um valor válido...')
-            continue 
-        try:
-                deseja_continuar=int(input('Deseja adicionar mais um número? SIM -> 1 | NÃO -> 2: '))
-                if deseja_continuar==2:
-                    break        
-                elif deseja_continuar!=1:
-                    os.system('cls')
-                    print('Por favor, coloque um valor válido...')
-        except:
-            os.system('cls')
-            print('Por favor, coloque um valor válido...')
+        while True:
+            try:
+                valores=float(input(f'Digite um valor: '))
+                lista_media.append(valores)
+                break 
+            except:
+                print('Por favor, coloque um valor válido...')
+                continue
+        while True:
+            try:
+                    deseja_continuar=int(input('Deseja adicionar mais um número? SIM -> 1 | NÃO -> 2: '))
+                    if deseja_continuar==1:
+                        break
+                    elif deseja_continuar==2:
+                        break
+                    else:
+                        os.system('cls')
+                        print('Por favor, coloque um valor válido...')
+            except:
+                os.system('cls')
+                print('Por favor, coloque um valor válido...')
+        if deseja_continuar==2:
+            break
     for i in lista_media:
         print(i)
     media=sum(lista_media)/len(lista_media)
