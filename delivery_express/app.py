@@ -35,7 +35,7 @@ def exibir_nome_do_programa():
 def exibir_opçoes_do_programa():
     print('1. Cadastrar restaurante')
     print('2. Listar restaurante')
-    print('3. Ativar restaurante')
+    print('3. Ativar ou desativar restaurante')
     print('4. Sair\n')
 
 def finalizar_app():
@@ -53,16 +53,37 @@ def exibir_subtitulo(texto):
 def cadastrar_novo_restaurante():
     exibir_subtitulo('Cadastro de novos restaurantes')
     nome_do_restaurante=input('Digite o nome do restaurante que deseja cadastrar: ')
-    restaurantes.append(nome_do_restaurante)
+    categoria_do_restaurante=input('Digite a categoria do seu restaurante: ')
+    dados_do_restaurante={'nome':nome_do_restaurante,'categoria':categoria_do_restaurante, 'ativo':False}
+    restaurantes.append(dados_do_restaurante)
     print(f'Restaurante {nome_do_restaurante} cadastrado com sucesso!!\n')
     retorne_ao_menu_principal()
 
 def lista_de_restaurantes():
     exibir_subtitulo('Restaurantes Cadastrados')
-    for nome_do_restaurante in restaurantes:
-        print('-',nome_do_restaurante)
+    for dados_do_restaurante in restaurantes:
+        nome=dados_do_restaurante['nome']
+        categoria=dados_do_restaurante['categoria']
+        ativo=dados_do_restaurante['ativo']
+        print(f'- {nome} | {categoria} | {ativo}')
     retorne_ao_menu_principal()
 
+def alterna_atividade_restaurante():
+    exibir_subtitulo('Alterando estado do restaurante')
+    nome_restaurante_ativar=input('Digite o nome do restaurante que deseja alterar o estado: ')
+    restaurante_encontrado=False
+    for restaurante in restaurantes:
+        if nome_restaurante_ativar==restaurante['nome']:
+            restaurante_encontrado=True
+            restaurante['ativo']=not restaurante['ativo']
+            mensagem=f'O restaurante {nome_restaurante_ativar} foi ativado com sucesso.' if restaurante['ativo'] else f'O restaurante {nome_restaurante_ativar} foi desativado com sucesso.'
+            print(mensagem)
+    if not restaurante_encontrado:
+        print('O restaurante não foi encontrado.')
+
+
+    retorne_ao_menu_principal()
+    
 def retorne_ao_menu_principal():
     input('\nDigite qualquer tecla para voltar ao menu principal: ')
     main()
@@ -76,7 +97,7 @@ def escolher_opcao():
             case 2:
                 lista_de_restaurantes()
             case 3:
-                print('Ativar Restaurante')
+                alterna_atividade_restaurante()
             case 4:
                 finalizar_app()
             case _:
