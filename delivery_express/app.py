@@ -47,7 +47,10 @@ def opcao_invalida():
 
 def exibir_subtitulo(texto):
     os.system('cls')
+    linha='-'*(len(texto))
+    print(linha)
     print(texto)
+    print(linha)
     print()
 
 def cadastrar_novo_restaurante():
@@ -61,11 +64,12 @@ def cadastrar_novo_restaurante():
 
 def lista_de_restaurantes():
     exibir_subtitulo('Restaurantes Cadastrados')
+    print(f'{'Nome: '.ljust(22)} | {'Categoria: '.ljust(21)}| Atividade:')
     for dados_do_restaurante in restaurantes:
         nome=dados_do_restaurante['nome']
         categoria=dados_do_restaurante['categoria']
-        ativo=dados_do_restaurante['ativo']
-        print(f'- {nome} | {categoria} | {ativo}')
+        ativo='Ativado' if dados_do_restaurante['ativo'] else 'Desativado'
+        print(f'- {nome.ljust(20)} | {categoria.ljust(20)} | {ativo}')
     retorne_ao_menu_principal()
 
 def alterna_atividade_restaurante():
