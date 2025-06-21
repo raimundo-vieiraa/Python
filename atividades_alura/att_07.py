@@ -1,5 +1,4 @@
 class ContaBancaria:
-    titulares=[]
     def __init__(self,titular,saldo):
         self._titular=titular
         self._saldo=saldo
