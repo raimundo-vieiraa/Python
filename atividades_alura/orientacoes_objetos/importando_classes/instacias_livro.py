@@ -1,4 +1,4 @@
-from att_09_0 import Livro
+from livro import Livro
 livro1=Livro(titulo='O Guia do Mochileiro das Galáxias', autor='Douglas Adams', ano_publicação=1979)
 livro2=Livro(titulo='Jogador Nº 1', autor='Ernest Cline', ano_publicação=2011)
 livro3=Livro(titulo='1984', autor='George Orwell', ano_publicação=1949)
